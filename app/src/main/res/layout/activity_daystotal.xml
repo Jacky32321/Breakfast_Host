@@ -7,50 +7,6 @@
     android:background="@mipmap/scorebg"
     android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/Nextday"
-        android:layout_width="143dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginBottom="40dp"
-        android:text="後一天"
-        android:textColor="#FA000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/Lastday"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/Lastday"
-        android:layout_width="143dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="40dp"
-        android:text="前一天"
-        android:textColor="#FC000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="104dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="營業額 ："
-        android:textColor="#160000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/total"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_list" />
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar4"
         android:layout_width="match_parent"
@@ -62,9 +18,50 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
+        android:id="@+id/mydatetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="現在日期"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar4"
+        app:layout_constraintStart_toStartOf="@+id/toolbar4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/total_list"
+        android:layout_width="370dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mydatetext">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="營業額 ："
+        android:textColor="#160000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_list" />
+
+
+    <TextView
         android:id="@+id/total"
-        android:layout_width="156dp"
-        android:layout_height="95dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -72,34 +69,36 @@
         android:textColor="#0F0101"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/total_list"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/total_list" />
 
-    <TextView
-        android:id="@+id/mydatetext"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:text="現在日期"
-        android:textColor="#000000"
+
+    <Button
+        android:id="@+id/Lastday"
+        android:layout_width="143dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="40dp"
+        android:text="前一天"
+        android:textColor="#FC000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar4"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="@+id/toolbar4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ListView
-        android:id="@+id/total_list"
-        android:layout_width="382dp"
-        android:layout_height="451dp"
+    <Button
+        android:id="@+id/Nextday"
+        android:layout_width="143dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ListView>
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        android:text="後一天"
+        android:textColor="#FA000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Lastday" />
 
 </android.support.constraint.ConstraintLayout>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.test01.Interface.ItemClickListener;
 import com.example.test01.Model.OrderFood;
+import com.example.test01.Model.Request;
 import com.example.test01.ViewHolder.OrderFoodViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.FirebaseApp;
@@ -45,22 +46,6 @@ public class OrderFoodList extends AppCompatActivity {
         confirm = database.getReference("confirm");
 
         recyclerView = (RecyclerView)findViewById(R.id.listFood);
-        Name = (TextView)findViewById(R.id.customerName);
-        Phone = (TextView)findViewById(R.id.customerPhone);
-        description = (TextView)findViewById(R.id.customerdescription);
-        confirm.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Name.setText("顧客名 : "+dataSnapshot.child(key).child("name").getValue().toString());
-                Phone.setText("顧客電話 : "+dataSnapshot.child(key).child("phone").getValue().toString());
-                description.setText("備註 : "+dataSnapshot.child(key).child("description").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -70,6 +55,26 @@ public class OrderFoodList extends AppCompatActivity {
     }
 
     private void loadOrder() {
+
+        Name = (TextView)findViewById(R.id.customerName);
+        Phone = (TextView)findViewById(R.id.customerPhone);
+        description = (TextView)findViewById(R.id.customerdescription);
+        confirm.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(key).exists()) {
+                    Name.setText("顧客名 : " + dataSnapshot.child(key).child("name").getValue().toString());
+                    Phone.setText("顧客電話 : " + dataSnapshot.child(key).child("phone").getValue().toString());
+                    description.setText("備註 : " + dataSnapshot.child(key).child("description").getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         adapter = new FirebaseRecyclerAdapter<OrderFood, OrderFoodViewHolder>(
                 OrderFood.class,
                 R.layout.foodorder_layout,

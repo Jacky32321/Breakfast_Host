@@ -63,7 +63,7 @@ public class UserDate extends AppCompatActivity {
                 mYear = year;
                 mMonth = month;
                 mDay = day;
-                dateText.setText("你設定的日期為"+setDateFormat2(year,month,day));
+                dateText.setText("你設定的日期為 "+setDateFormat2(year,month,day));
             }
 
         }, mYear,mMonth, mDay);
